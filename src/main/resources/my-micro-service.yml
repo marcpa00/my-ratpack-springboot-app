@@ -1,0 +1,21 @@
+
+# Discovery Server Access
+eureka:
+  instance:
+    hostname: ${DOMAIN_NAME:localhost}
+    nonSecurePort: 80
+  scheme: ${HTTP_SCHEME:http}
+  hostname: ${EUREKA_HOSTNAME:localhost}
+  port: ${EUREKA_PORT:8761}
+  user: ${EUREKA_USER:eureka}
+  password: ${EUREKA_PASSWORD:bingo}
+  client:
+    serviceUrl:
+        defaultZone: "${eureka.scheme}://${eureka.user}:${eureka.password}@${eureka.hostname}:${eureka.port}/eureka/"
+
+# service name bindings
+myMicroService:
+  url: ${spring.application.name}
+
+server:
+  port: ${PORT:5050}
